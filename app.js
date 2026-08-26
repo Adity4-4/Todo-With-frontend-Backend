@@ -8,7 +8,11 @@ const viewData=require("./routers/viewData")
 const cors = require("cors");
 const del=require("./routers/delete")
 const edit=require("./routers/edit")
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://your-production-frontend-url.vercel.app'], // Add your deployed frontend URL here later!
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 app.use(express.json());
 
 
